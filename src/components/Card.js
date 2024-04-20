@@ -42,7 +42,9 @@ export default function Card({data, setTasks}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <Pressable
-        onPress={() => navigation.navigate(SCREEN.DETAIL_TASK, data)}
+        onPress={() =>
+          navigation.navigate(SCREEN.DETAIL_TASK, {data, setTasks})
+        }
         className="w-100 m-2 p-6 bg-white rounded-lg border border-gray-200">
         <View className="flex flex-row justify-between">
           <View className="w-4/6 flex flex-row items-center mb-2">

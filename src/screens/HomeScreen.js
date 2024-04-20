@@ -18,7 +18,7 @@ export default function HomeScreen({navigation}) {
     try {
       const savedTasksString = await AsyncStorage.getItem('tasks');
       let savedTasks = savedTasksString ? JSON.parse(savedTasksString) : [];
-      if (Array.isArray(savedTasks)) {
+      if (savedTasks) {
         const todoLength = savedTasks.filter(
           task => task.status === 'Todo',
         ).length;
@@ -41,7 +41,7 @@ export default function HomeScreen({navigation}) {
   console.log(tasks);
   useEffect(() => {
     getTasks();
-  }, [tasks]);
+  }, []);
 
   const clearTask = async () => {
     try {
